@@ -47,7 +47,7 @@ public class RunRepository {
         var updated = jdbcClient.sql(
                 "update run set title=?, start_on=?, complete_on=?, miles=?, location=? where id=?"
         ).params(run.title(),run.startOn(),run.completeOn(),run.miles(),run.location().toString(),id).update();
-        Assert.state(updated==1,"Failed to update run "+run.title());
+        Assert.state(updated==1,"Failed to update run "+run.title()); // updated returns how many rows are updated
     }
     public void delete(Integer id){
         var deleted = jdbcClient.sql(
